@@ -1,0 +1,3 @@
+adapter: mysql2
+database: active_record_ignored_attributes_test
+username: root

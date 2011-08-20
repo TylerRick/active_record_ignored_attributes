@@ -1,0 +1,1 @@
+require 'active_record_ignored_attributes/matchers/be_same_as'

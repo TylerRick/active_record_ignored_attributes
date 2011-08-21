@@ -86,9 +86,9 @@ If you want to override the defaults instead of appending to them, just don't re
 
 Now that you've declared which attributes you don't really care about, how about making it so you don't have to see them in your `inspect` output too? (The output from `inspect` is verbose enough as it is!!)
 
-If you want to occasionally see the same output as the default `inspect` but without all those ignored attributes showing up, you can just call `object.inspect_without_ignored_attributes`:
+`object.inspect_without_ignored_attributes` will give you the same output as the default `inspect` but without all those ignored attributes (except for `id` — `id` is always included, even if it's listed in `ignored_attributes`)):
 
-    address.inspect_without_ignored_attributes # => "#<Address address: nil, city: nil, country: nil, postal_code: nil, state: nil>"
+    address.inspect_without_ignored_attributes # => "#<Address id: 1, address: nil, city: nil, country: nil, postal_code: nil, state: nil>"
 
     # Compared to:
     address.inspect                            # => "#<Address id: 1, name: nil, address: nil, city: nil, state: nil, postal_code: nil, country: nil, created_at: \"2011-08-19 18:07:39\", updated_at: \"2011-08-19 18:07:39\">"

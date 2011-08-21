@@ -14,7 +14,12 @@ module ActiveRecordIgnoredAttributes::Inspect
       bracket(*brackets)
   end
 
+  def attributes_for_inspect
+    [:id].map(&:to_s) + 
+    (attributes.keys - self.class.ignored_attributes.map(&:to_s))
+  end
+
   def inspect_without_ignored_attributes
-    inspect_with(attributes.keys - self.class.ignored_attributes.map(&:to_s))
+    inspect_with(attributes_for_inspect)
   end
 end

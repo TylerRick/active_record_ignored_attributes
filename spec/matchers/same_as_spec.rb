@@ -12,7 +12,7 @@ describe "be_same_as" do
     object, other = Address.new(address: 'A Street'), Address.new(address: 'B Street')
     expect do
       object.should be_same_as(other)
-    end.should raise_error(<<-End.strip_heredoc.chomp)
+    end.to raise_error(<<-End.strip_heredoc.chomp)
     expected: #<Address address: "B Street">
          got: #<Address address: "A Street">
     End
@@ -22,7 +22,7 @@ describe "be_same_as" do
     object, other = Address.new(address: 'A Street'), Address.new(address: 'A Street')
     expect do
       object.should_not be_same_as(other)
-    end.should raise_error(<<-End.strip_heredoc.chomp)
+    end.to raise_error(<<-End.strip_heredoc.chomp)
          expected: {Address id: nil, name: nil, address: "A Street", city: nil, state: nil, postal_code: nil, country: nil}
 to not be same_as: {Address id: nil, name: nil, address: "A Street", city: nil, state: nil, postal_code: nil, country: nil}
     End

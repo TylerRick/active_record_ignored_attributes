@@ -44,6 +44,16 @@ Using `same_as?`:
     b = Address.new(address: 'Nowhere Road')
     a.same_as?(b) # => false
 
+Using `has_attribute_values?`:
+
+    a = Address.new(address: 'A St.', city: "Don't care")
+    a.has_attribute_values?(address: 'A St.')                    # => true
+    a.has_attribute_values?(address: 'A St.', city: 'Different') # => false
+
+    b = Address.new(address: 'B St.', city: "Don't care")
+    b.has_attribute_values?(address: 'A St.')                    # => false
+    b.has_attribute_values?({})                                  # => true
+
 
 Installing
 ==========
@@ -128,7 +138,7 @@ or:
 RSpec
 =======
 
-This gem comes with a `be_same_as` matcher for RSpec.
+This gem comes with a `be_same_as` and `have_attribute_values` matcher for RSpec.
 
 Add this to your spec_helper.rb:
 
@@ -152,7 +162,15 @@ and it will lovingly do a diff for you and only show you the attributes in each 
     expected: #<Address address: "Nowhere Road">
          got: #<Address address: "B St.">
 
+Or use `should have_attribute_values` whenever it's more convenient to specify the expected attributes with a hash instead of building a new model instance:
 
+    a = Address.new(               name: 'A', address: 'The Same Address', city: "Don't care")
+    a.should have_attribute_values name: 'A', address: 'A Slightly Different Address'
+
+will fail with:
+
+    expected: {:name=>"A", :address=>"A Slightly Different Address"}
+         got: {:name=>"A", :address=>"The Same Address"}
 
 Motivation
 ==========

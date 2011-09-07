@@ -1,1 +1,2 @@
 require 'active_record_ignored_attributes/matchers/be_same_as'
+require 'active_record_ignored_attributes/matchers/have_attribute_values'

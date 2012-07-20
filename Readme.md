@@ -61,7 +61,7 @@ Installing
 Add to your `Gemfile`:
 
 <pre>
-gem "active_record_attributes_equality"
+gem "active_record_ignored_attributes"
 </pre>
 
 If you want to *replace* the default ActiveRecord `==` operator with the `same_as?` behavior, you should be able to just override it, like this:
@@ -73,7 +73,7 @@ If you want to *replace* the default ActiveRecord `==` operator with the `same_a
 Configuring which attributes are ignored
 ========================================
 
-By default, `id`, `created_at`, and `updated_at` will be ignored.
+By default, `id`, `created_at`, and `updated_at` will be ignored (`id` is *not* ignored by `inspect_without_ignored_attributes` though).
 
 If you want to *add* some ignored attributes to the default array (`[:id, :created_at, :updated_at]`), you can override `self.ignored_attributes` like so, referencing `super`:
 
@@ -134,6 +134,20 @@ or:
       end
     end
 
+If you want to inspect with the same attributes as inspect_without_ignored_attributes plus some
+*additional* attributes (or, more likely, some virtual attributes), you can just use the
+`attributes_for_inspect` method that `inspect_without_ignored_attributes` uses, which automatically
+excludes any attributes listed in `ignored_attributes`:
+
+    class Address < ActiveRecord::Base
+      def inspect
+        inspect_with(attributes_for_inspect + [:virtual_attr_1, :virtual_attr_2])
+      end
+    end
+
+This is useful because virtual attributes (methods in your model that aren't part of the
+"attributes" returned by record.attributes) won't be included by inspect_without_ignored_attributes
+by default.
 
 RSpec
 =======

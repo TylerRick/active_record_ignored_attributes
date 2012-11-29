@@ -1,3 +1,5 @@
 module ActiveRecordIgnoredAttributes
-  Version = "0.0.3"
+  def self.version
+    "0.0.4"
+  end
 end

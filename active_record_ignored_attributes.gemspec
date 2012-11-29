@@ -4,7 +4,7 @@ require "active_record_ignored_attributes/version"
 
 Gem::Specification.new do |s|
   s.name        = "active_record_ignored_attributes"
-  s.version     = ActiveRecordIgnoredAttributes::Version
+  s.version     = ActiveRecordIgnoredAttributes.version
   s.authors     = ["Tyler Rick"]
   s.email       = ["tyler@tylerrick.com"]
   s.homepage    = ""

@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.description = s.summary
 
   s.add_dependency             'activerecord'
+  s.add_dependency             'activesupport'
   s.add_dependency             'facets'
 
   s.add_development_dependency 'rspec'
@@ -19,7 +20,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'mysql2', '~>0.2.11'
   s.add_development_dependency 'rr'
-  s.add_development_dependency 'activesupport'
   s.add_development_dependency 'ruby-debug19'
 
   s.files         = `git ls-files`.split("\n")

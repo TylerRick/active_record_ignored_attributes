@@ -1,4 +1,5 @@
 require 'bundler/gem_tasks'
+require 'rake/testtask'
 
 #require 'bundler'
 #begin
@@ -19,6 +20,12 @@ end
 RSpec::Core::RakeTask.new(:rcov) do |spec|
   spec.pattern = 'spec/**/*_spec.rb'
   spec.rcov = true
+end
+
+Rake::TestTask.new do |t|
+  t.libs << "test"
+  t.test_files = FileList['test/*test.rb']
+  t.verbose = true
 end
 
 task :default => :spec

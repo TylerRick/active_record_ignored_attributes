@@ -194,7 +194,7 @@ This gem adds a `assert_same_as` (and an alias `assert_same_attributes_as`) to `
 Usage example:
 
     class AddressTest < ActiveSupport::TestCase
-	  test "adressses with same attributes considered the same"
+	  test "adressses with same attributes considered the same" do
 	    expected = Address.new(address: 'B St.')
 	    actual = Address.new(address: 'B St.')
 	    assert_same_as expected, actual # passes

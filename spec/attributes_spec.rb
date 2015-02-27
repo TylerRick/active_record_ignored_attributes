@@ -5,28 +5,28 @@ describe Address do
     let(:address) { Address.create! }
     it 'should not include any of the ignored attributes' do
       address.attributes_without_ignored_attributes.tap do |attributes|
-        attributes.should be_a(Hash)
-        attributes.should_not have_key('id')
-        attributes.should_not have_key('created_at')
-        attributes.should_not have_key('updated_at')
-        attributes.should_not have_key('name')
+        expect(attributes.class).to eq(Hash)
+        expect(attributes).to_not have_key('id')
+        expect(attributes).to_not have_key('created_at')
+        expect(attributes).to_not have_key('updated_at')
+        expect(attributes).to_not have_key('name')
       end
 
       # Plain old 'attributes', on the other hand, does include them
       address.attributes.tap do |attributes|
-        attributes.should be_a(Hash)
-        attributes.should have_key('id')
-        attributes.should have_key('created_at')
-        attributes.should have_key('updated_at')
+        expect(attributes.class).to eq(Hash)
+        expect(attributes).to have_key('id')
+        expect(attributes).to have_key('created_at')
+        expect(attributes).to have_key('updated_at')
       end
     end
 
     it 'should include all of the non-ignored attributes' do
       address.attributes_without_ignored_attributes.tap do |attributes|
-        attributes.should be_a(Hash)
+        expect(attributes.class).to eq(Hash)
         [:address, :city, :state, :postal_code, :country].each do |attr_name|
           #puts "attributes.has_key?(#{attr_name})=#{attributes.has_key?(attr_name)}"
-          attributes.should have_key(attr_name.to_s)
+          expect(attributes).to have_key(attr_name.to_s)
         end
       end
     end

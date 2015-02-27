@@ -1,3 +1,6 @@
+require 'yaml'
+require 'byebug'
+
 __DIR__ = Pathname.new(__FILE__).dirname
 $LOAD_PATH.unshift __DIR__
 $LOAD_PATH.unshift __DIR__ + '../lib'

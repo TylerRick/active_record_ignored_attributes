@@ -3,7 +3,7 @@ RSpec::Matchers.define :be_same_as do |expected|
     actual.same_as?(expected)
   end
 
-  failure_message_for_should do |actual|
+  failure_message do |actual|
    #%(#{actual.inspect_without_ignored_attributes} was expected to have the same attributes as\n) +
    #%(#{expected.inspect_without_ignored_attributes})
 
@@ -15,7 +15,7 @@ RSpec::Matchers.define :be_same_as do |expected|
     %(     got: #{actual.inspect_with(attr_names_that_differed)})
   end
 
-  failure_message_for_should_not do |actual|
+  failure_message_when_negated do |actual|
     %(         expected: #{expected.inspect}\n) +
     %(to not be same_as: #{actual.inspect})
   end

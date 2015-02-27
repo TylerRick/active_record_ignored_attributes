@@ -1,7 +1,10 @@
 ActiveRecord Ignored Attributes
 ===============================
 
-Adds various behavior to Active Record models relating to the model's attributes: 
+Updated to work with RSpec 3.x+ and ActiveRecord 4.x+
+=====================================================
+
+Adds various behavior to Active Record models relating to the model's attributes:
 
 * Allows you to compare Active Record objects based on their *attributes*, which often makes more sense than the built-in `==` operator (which does its comparisons based on the `id` attribute alone! — not always what you want!)
 * You can configure which attributes, if any, should be excluded from the comparison
@@ -102,7 +105,7 @@ Now that you've declared which attributes you don't really care about, how about
 
     # Compared to:
     address.inspect                            # => "#<Address id: 1, name: nil, address: nil, city: nil, state: nil, postal_code: nil, country: nil, created_at: \"2011-08-19 18:07:39\", updated_at: \"2011-08-19 18:07:39\">"
-  
+
 But that is a lot to type every time. If you want inspect to *always* be more readable, you can override the ActiveRecord default like this:
 
     class Address < ActiveRecord::Base
@@ -227,7 +230,7 @@ Questions and Ideas
 
 Possible improvements:
 
-* Allow the default to be overridden with a class macro like `ignore_for_attributes_eql :last_signed_in_at, :updated_at` 
+* Allow the default to be overridden with a class macro like `ignore_for_attributes_eql :last_signed_in_at, :updated_at`
 
 Also, perhaps you want to set the default ignored attributes for a model but still wish to be able to override these defaults as needed...
 

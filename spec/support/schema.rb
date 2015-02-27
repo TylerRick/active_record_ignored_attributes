@@ -6,7 +6,7 @@ ActiveRecord::Schema.define do
     t.string   :state
     t.string   :postal_code
     t.string   :country
-    t.timestamps
+    t.timestamps null:false
   end
 end
 

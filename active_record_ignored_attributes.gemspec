@@ -11,16 +11,14 @@ Gem::Specification.new do |s|
   s.summary     = %q{Allows you to compare Active Record objects based on their *attributes* (with same_as?), to exclude some attributes from being used in comparison, and adds improved inspect method}
   s.description = s.summary
 
-  s.add_dependency             'activerecord'
+  s.add_dependency             'activerecord', '~> 4'
   s.add_dependency             'facets'
 
-  s.add_development_dependency 'rspec'
- #s.add_development_dependency 'rcov'
+  s.add_development_dependency 'rspec', '~> 3'
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'mysql2', '~>0.2.11'
   s.add_development_dependency 'rr'
-  s.add_development_dependency 'activesupport'
-  s.add_development_dependency 'ruby-debug19'
+  s.add_development_dependency 'activesupport', '~> 4'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

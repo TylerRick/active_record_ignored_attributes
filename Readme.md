@@ -1,8 +1,8 @@
 ActiveRecord Ignored Attributes
 ===============================
 
-Updated to work with RSpec 3.x+ and ActiveRecord 4.x+
-=====================================================
+Updated to work with RSpec 3.x
+
 
 Adds various behavior to Active Record models relating to the model's attributes:
 

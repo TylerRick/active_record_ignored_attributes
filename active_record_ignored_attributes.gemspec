@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{Allows you to compare Active Record objects based on their *attributes* (with same_as?), to exclude some attributes from being used in comparison, and adds improved inspect method}
   s.description = s.summary
 
-  s.add_dependency             'activerecord', '~> 4'
+  s.add_dependency             'activerecord'
   s.add_dependency             'facets'
 
   s.add_development_dependency 'rspec', '~> 3'
